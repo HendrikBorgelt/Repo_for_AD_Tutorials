@@ -92,27 +92,27 @@ def create_mesh3d_for_arrow(mesh_arrow, scalingfactor, pos_vec, zeta, eta, theta
 
 
     mesh3D_base_body = go.Mesh3d(x=x, y=y, z=z, i=I, j=J, k=K,
-                                 color=bodycolor, opacity=0.50, showscale=False)
+                                 color=bodycolor, opacity=0.50, showscale=False, visible=True)
     mesh3D_Tip = go.Scatter3d(x=array_for_arrow_tip[0, :], y=array_for_arrow_tip[1, :], z=array_for_arrow_tip[2, :],
-                                mode='lines', line=dict(color=line_color, width= ptly_linewidth))
+                                mode='lines', line=dict(color=line_color, width= ptly_linewidth), visible=True)
     mesh3D_inner_ring = go.Scatter3d(x=array_for_inner_ring[0, :], y=array_for_inner_ring[1, :], z=array_for_inner_ring[2, :],
-                                mode='lines', line=dict(color=line_color, width= ptly_linewidth))
+                                mode='lines', line=dict(color=line_color, width= ptly_linewidth), visible=True)
     mesh3D_outer_ring = go.Scatter3d(x=array_for_outer_ring[0, :], y=array_for_outer_ring[1, :], z=array_for_outer_ring[2, :],
-                                mode='lines', line=dict(color=line_color, width= ptly_linewidth))
+                                mode='lines', line=dict(color=line_color, width= ptly_linewidth), visible=True)
     mesh3D_end_ring = go.Scatter3d(x=sorted_array[0, :], y=sorted_array[1, :], z=sorted_array[2, :],
-                                mode='lines', line=dict(color=line_color, width= ptly_linewidth))
+                                mode='lines', line=dict(color=line_color, width= ptly_linewidth), visible=True)
     mesh3D_line_0 = go.Scatter3d(x=line_0[0, :], y=line_0[1, :], z=line_0[2, :], mode='lines',
-                                    line=dict(color=line_color, width= ptly_linewidth))
+                                    line=dict(color=line_color, width= ptly_linewidth), visible=True)
     mesh3D_line_1 = go.Scatter3d(x=line_1[0, :], y=line_1[1, :], z=line_1[2, :], mode='lines',
-                                    line=dict(color=line_color, width= ptly_linewidth))
+                                    line=dict(color=line_color, width= ptly_linewidth), visible=True)
     mesh3D_line_2 = go.Scatter3d(x=line_2[0, :], y=line_2[1, :], z=line_2[2, :], mode='lines',
-                                    line=dict(color=line_color, width= ptly_linewidth))
+                                    line=dict(color=line_color, width= ptly_linewidth), visible=True)
     mesh3D_line_3 = go.Scatter3d(x=line_3[0, :], y=line_3[1, :], z=line_3[2, :], mode='lines',
-                                    line=dict(color=line_color, width= ptly_linewidth))
+                                    line=dict(color=line_color, width= ptly_linewidth), visible=True)
     mesh3D_line_4 = go.Scatter3d(x=line_4[0, :], y=line_4[1, :], z=line_4[2, :], mode='lines',
-                                    line=dict(color=line_color, width= ptly_linewidth))
+                                    line=dict(color=line_color, width= ptly_linewidth), visible=True)
     mesh3D_line_5 = go.Scatter3d(x=line_5[0, :], y=line_5[1, :], z=line_5[2, :], mode='lines',
-                                    line=dict(color=line_color, width= ptly_linewidth))
+                                    line=dict(color=line_color, width= ptly_linewidth), visible=True)
     mesh3D_arrow = [mesh3D_base_body, mesh3D_Tip, mesh3D_inner_ring, mesh3D_outer_ring, mesh3D_end_ring, mesh3D_line_0,
                     mesh3D_line_1, mesh3D_line_2, mesh3D_line_3, mesh3D_line_4, mesh3D_line_5,]
 

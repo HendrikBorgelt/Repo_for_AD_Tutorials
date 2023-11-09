@@ -110,31 +110,31 @@ def create_mesh3d_for_dif_element(mesh_differential_element, scalingfactor, pos_
 
 
     mesh3D_base_body_1 = go.Mesh3d(x=x, y=y, z=z, i=I, j=J, k=K,
-                                 color=bodycolor, opacity=0.50, showscale=False)
+                                 color=bodycolor, opacity=0.50, showscale=False, visible=True)
     mesh3D_body_lower_front_curve = go.Scatter3d(x=lower_fornt_curve[0, :], y=lower_fornt_curve[1, :], z=lower_fornt_curve[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3D_body_lower_back_curve = go.Scatter3d(x=lower_back_curve[0, :], y=lower_back_curve[1, :], z=lower_back_curve[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3D_body_upper_front_curve = go.Scatter3d(x=upper_front_curve[0, :], y=upper_front_curve[1, :], z=upper_front_curve[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3D_body_upper_back_curve = go.Scatter3d(x=upper_back_curve[0, :], y=upper_back_curve[1, :], z=upper_back_curve[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3d_body_front_left = go.Scatter3d(x=body_front_left[0, :], y=body_front_left[1, :], z=body_front_left[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3d_body_front_right = go.Scatter3d(x=body_front_right[0, :], y=body_front_right[1, :], z=body_front_right[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3d_body_back_left = go.Scatter3d(x=body_back_left[0, :], y=body_back_left[1, :], z=body_back_left[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3d_body_back_right = go.Scatter3d(x=body_back_right[0, :], y=body_back_right[1, :], z=body_back_right[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3d_body_upper_right = go.Scatter3d(x=body_upper_right[0, :], y=body_upper_right[1, :], z=body_upper_right[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3d_body_upper_left = go.Scatter3d(x=body_upper_left[0, :], y=body_upper_left[1, :], z=body_upper_left[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3d_body_lower_right = go.Scatter3d(x=body_lower_right[0, :], y=body_lower_right[1, :], z=body_lower_right[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
     mesh3d_body_lower_left = go.Scatter3d(x=body_lower_left[0, :], y=body_lower_left[1, :], z=body_lower_left[2, :],
-                                mode='lines', line=dict(color=line_color, width=plty_linewidth))
+                                mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True)
 
     # mesh3D_body_lower_front_curve = go.Scatter3d(x=x_front_curve, y=y_front_curve, z=z_front_curve, mode='lines',
     #                                              line=dict(color=line_color, width=plty_linewidth))
