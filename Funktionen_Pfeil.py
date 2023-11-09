@@ -39,8 +39,8 @@ def create_mesh3d_for_arrow(mesh_arrow, scalingfactor, pos_vec, zeta, eta, theta
             arrow_outer_ring_y.append(y_1)
             arrow_outer_ring_z.append(z_1)
 
-    neg_array = np.empty((0, 3), float)
-    pos_array = np.empty((0, 3), float)
+    neg_array = copy.deepcopy(np.empty((0, 3), float))
+    pos_array = copy.deepcopy(np.empty((0, 3), float))
     for i in np.array([arrow_inner_ring_x, arrow_inner_ring_y, arrow_inner_ring_z]).T:
         if i[2] <= 0:
             neg_array = np.append(neg_array, [i], axis=0)
