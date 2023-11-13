@@ -26,6 +26,6 @@ def create_mesh3d_for_vectorfeld(x_center,x_width, y_center, y_width, z_center, 
     mesh_data = go.Cone(x=x_234, y=y_234, z=z_234,
                         u=u_234,  v=v_234, w=w_234,
                         opacity=0.8, sizemode="scaled", sizeref=5/a_234*scalefactor/ x_width * 20,
-                        colorscale= [[0, 'gray'], [1, 'gray']], showscale=False)
+                        colorscale= [[0, 'gray'], [1, 'gray']], showscale=False, visible=False, hoverinfo='none')
 
     return mesh_data

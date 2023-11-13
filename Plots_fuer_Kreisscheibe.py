@@ -13,16 +13,16 @@ import BasisFunktionen as bf
 mesh_differential_element_1 = mesh.Mesh.from_file('./meshes/Differentielles_Element.stl')
 mesh3D_Differential_element_1 = fd.create_mesh3d_for_dif_element(mesh_differential_element_1, 1, [0, 0, 0], 0, 0, 0)
 mesh_straight_arrow_1 = mesh.Mesh.from_file('./meshes/Pfeil.stl')
-mesh3D_Arrow_1 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, -50, 0], 0, 0, 0)
-mesh3D_Arrow_2 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, 0, 0], np.pi, 0, 0)
-mesh3D_Arrow_3 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, 50, 0], np.pi, 0, 0)
-mesh3D_Arrow_4 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [-50, -10, 0], 0, np.pi, np.pi/360*150)
-mesh3D_Arrow_5 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.48296291314453416, [-50, -8.3, 0], 0, np.pi, np.pi/360*180, bodycolor='lightblue')
-mesh3D_Arrow_6 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.12940952255126037, [-58.69805, -10, 0], 0, np.pi, 0, bodycolor='lightgreen')
+mesh3D_Arrow_1 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, -50, 0], 0, 0, 0, hovertext_1=r'$F_r * r d\phi$')
+mesh3D_Arrow_2 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, 0, 0], np.pi, 0, 0, 'test')
+mesh3D_Arrow_3 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, 50, 0], np.pi, 0, 0, '1')
+mesh3D_Arrow_4 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [-50, -10, 0], 0, np.pi, np.pi/360*150, '2')
+mesh3D_Arrow_5 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.48296291314453416, [-50, -8.3, 0], 0, np.pi, np.pi/360*180, '3', bodycolor='lightblue')
+mesh3D_Arrow_6 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.12940952255126037, [-58.69805, -10, 0], 0, np.pi, 0, '4', bodycolor='lightgreen')
 
-mesh3D_Arrow_7 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [50, -10, 0], 0, 0, np.pi/360*150)
-mesh3D_Arrow_8 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.48296291314453416, [50, -8.3, 0], 0, 0, np.pi/360*180, bodycolor='lightblue')
-mesh3D_Arrow_9 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.12940952255126037, [58.69805, -10, 0], 0, 0, 0, bodycolor='lightgreen')
+mesh3D_Arrow_7 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [50, -10, 0], 0, 0, np.pi/360*150, '8')
+mesh3D_Arrow_8 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.48296291314453416, [50, -8.3, 0], 0, 0, np.pi/360*180, '6', bodycolor='lightblue')
+mesh3D_Arrow_9 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.12940952255126037, [58.69805, -10, 0], 0, 0, 0, '7', bodycolor='lightgreen')
 
 mesh_data = mesh3D_Differential_element_1.extend(mesh3D_Arrow_1) # F_r r d phi
 mesh_data = mesh3D_Differential_element_1.extend(mesh3D_Arrow_2) # q r e dr r d phi
@@ -145,7 +145,7 @@ fig.update_layout(
             buttons=list([
                 dict(label="Alle Kräfte",
                      method="update",
-                     args=[{"visible": [True]*114},]),
+                     args=[{"visible": [True]*112+[False]*2},]),
                 dict(label="F_r",
                      method="update", # Dif = 13, Arrow = 11 , Vector = 1
                      args=[{"visible": [True]*13+[False]*11+[True]*99},{"scene.annotations": []}]),
