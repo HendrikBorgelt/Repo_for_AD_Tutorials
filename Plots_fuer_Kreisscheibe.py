@@ -11,18 +11,19 @@ import BasisFunktionen as bf
 
 
 mesh_differential_element_1 = mesh.Mesh.from_file('./meshes/Differentielles_Element.stl')
-mesh3D_Differential_element_1 = fd.create_mesh3d_for_dif_element(mesh_differential_element_1, 1, [0, 0, 0], 0, 0, 0)
+mesh3D_Differential_element_1 = fd.create_mesh3d_for_dif_element(mesh_differential_element_1, 1, [0, 0, 0], 0, 0, 0, frame=True)
 mesh_straight_arrow_1 = mesh.Mesh.from_file('./meshes/Pfeil.stl')
-mesh3D_Arrow_1 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, -50, 0], 0, 0, 0, hovertext_1=r'$F_r * r d\phi$')
-mesh3D_Arrow_2 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, 0, 0], np.pi, 0, 0, 'test')
-mesh3D_Arrow_3 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, 50, 0], np.pi, 0, 0, '1')
-mesh3D_Arrow_4 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [-50, -10, 0], 0, np.pi, np.pi/360*150, '2')
-mesh3D_Arrow_5 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.48296291314453416, [-50, -8.3, 0], 0, np.pi, np.pi/360*180, '3', bodycolor='lightblue')
-mesh3D_Arrow_6 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.12940952255126037, [-58.69805, -10, 0], 0, np.pi, 0, '4', bodycolor='lightgreen')
+mesh3D_Arrow_1 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, -50, 0], 0, 0, 0, '<i>F<sub>r </sub> r d&#966; </i>')
+mesh3D_Arrow_2 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, 0, 0], np.pi, 0, 0, '<i>q( r ) e dr r d&#966; </i>')
+mesh3D_Arrow_3 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, 50, 0], np.pi, 0, 0, '<i>(F<sub>r </sub>+dF<sub>r </sub>)(r + dr)d&#966; </i>')
 
-mesh3D_Arrow_7 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [50, -10, 0], 0, 0, np.pi/360*150, '8')
-mesh3D_Arrow_8 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.48296291314453416, [50, -8.3, 0], 0, 0, np.pi/360*180, '6', bodycolor='lightblue')
-mesh3D_Arrow_9 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.12940952255126037, [58.69805, -10, 0], 0, 0, 0, '7', bodycolor='lightgreen')
+mesh3D_Arrow_4 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [-50, -10, 0], 0, np.pi, np.pi/360*150, '<i>F<sub>&#966; </sub>dr</i>')
+mesh3D_Arrow_5 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.48296291314453416, [-50, -8.3, 0], 0, np.pi, np.pi/360*180, '<i>F<sub>&#966; </sub>dr cos(d&#966; &#8260; 2) &#8776; F<sub>&#966; </sub>dr</i>', bodycolor='lightblue')
+mesh3D_Arrow_6 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.12940952255126037, [-58.69805, -10, 0], 0, np.pi, 0, '<i>F<sub>&#966; </sub>dr sin(d&#966; &#8260; 2) &#8776; F<sub>&#966; </sub>dr d&#966; &#8260; 2</i>', bodycolor='lightgreen')
+
+mesh3D_Arrow_7 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [50, -10, 0], 0, 0, np.pi/360*150, '<i>F<sub>&#966; </sub>dr</i>')
+mesh3D_Arrow_8 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.48296291314453416, [50, -8.3, 0], 0, 0, np.pi/360*180, '<i>F<sub>&#966; </sub>dr cos(d&#966; &#8260; 2) &#8776; F<sub>&#966; </sub>dr</i>', bodycolor='lightblue')
+mesh3D_Arrow_9 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.12940952255126037, [58.69805, -10, 0], 0, 0, 0, '<i>F<sub>&#966; </sub>dr sin(d&#966; &#8260; 2) &#8776; F<sub>&#966; </sub>dr d&#966; &#8260; 2</i>', bodycolor='lightgreen')
 
 mesh_data = mesh3D_Differential_element_1.extend(mesh3D_Arrow_1) # F_r r d phi
 mesh_data = mesh3D_Differential_element_1.extend(mesh3D_Arrow_2) # q r e dr r d phi
@@ -113,6 +114,7 @@ geometry_annotations = [dict(  # upper front curve
                             arrowcolor="black",
                             arrowsize=3, arrowwidth=1, arrowhead=0),]
 
+
 fig.update_layout(
     showlegend=False,
     updatemenus=[
@@ -148,10 +150,10 @@ fig.update_layout(
                      args=[{"visible": [True]*112+[False]*2},]),
                 dict(label="F_r",
                      method="update", # Dif = 13, Arrow = 11 , Vector = 1
-                     args=[{"visible": [True]*13+[False]*11+[True]*99},{"scene.annotations": []}]),
+                     args=[{"visible": [True]*13+[False]*11+[True]*99},{"scene.annotations": force_annotations + geometry_annotations}]),
                 dict(label="q r",
                      method="update", # Dif = 13, Arrow = 11 , Vector = 1
-                     args=[{"visible": [True]*24+[False]*11+[True]*88},{"scene.annotations": []}]),
+                     args=[{"visible": [True]*24+[False]*11+[True]*88},{"scene.annotations": force_annotations + geometry_annotations}]),
                 dict(label="F_r + dF_r",
                      method="update", # Dif = 13, Arrow = 11 , Vector = 1
                      args=[{"visible": [True]*35+[False]*11+[True]*77},{"scene.annotations": []}]),
@@ -246,3 +248,10 @@ fig.update_layout(
 
 fig.show()
 fig.write_html("./Kreisscheibe_mit_Kraftzerlegung_mit_Dropdown.html", include_plotlyjs='cdn', include_mathjax='cdn')
+
+
+# import Dropdown_menu_optionen as dmo
+
+# test_2 = [test_3 + [test[i]] for i in range(len(test)) if i not in []]
+
+# test = dmo.create_drop_menu_dicts([True,False,True,False,True,True,True,True,True,True], [1,2,3,4,5], [1,2,3,4,5])
