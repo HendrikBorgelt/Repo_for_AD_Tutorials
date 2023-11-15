@@ -34,8 +34,8 @@ mesh_data = mesh3D_Differential_element_1.extend(mesh3D_Arrow_6) # F_phi dr sin 
 mesh_data = mesh3D_Differential_element_1.extend(mesh3D_Arrow_7) # F_phi dr links
 mesh_data = mesh3D_Differential_element_1.extend(mesh3D_Arrow_8) # F_phi dr cos d phi / 2
 mesh_data = mesh3D_Differential_element_1.extend(mesh3D_Arrow_9) # F_phi dr sin d phi / 2
-mesh_data = mesh3D_Differential_element_1.extend([fk.create_mesh3d_for_vectorfeld(0, 35, 25, 0, 0, 20,1, 1,8, 15)])
-mesh_data = mesh3D_Differential_element_1.extend([fk.create_mesh3d_for_vectorfeld(0, 20, -25, 0, 0, 20,-1, 1,8, 15)])
+# mesh_data = mesh3D_Differential_element_1.extend([fk.create_mesh3d_for_vectorfeld(0, 35, 25, 0, 0, 20,1, 1,8, 15)])
+# mesh_data = mesh3D_Differential_element_1.extend([fk.create_mesh3d_for_vectorfeld(0, 20, -25, 0, 0, 20,-1, 1,8, 15)])
 
 # ([mesh3D_Arrow_1])
 fig = go.Figure(data=mesh3D_Differential_element_1)
@@ -112,13 +112,14 @@ geometry_annotations = [dict(  # upper front curve
                             ax=50, ay=-50,
                             font=dict(color="black", size=12),
                             arrowcolor="black",
-                            arrowsize=3, arrowwidth=1, arrowhead=0),]
+                            arrowsize=3, arrowwidth=1, arrowhead=0)]
 
 
 fig.update_layout(
     showlegend=False,
     updatemenus=[
         dict(
+            name='Beschriftung',
             active=0,
             buttons=list([
                 dict(label="Keine Beschriftung",
@@ -144,6 +145,7 @@ fig.update_layout(
         ),
         dict(
             active=0,
+            type="buttons",
             buttons=list([
                 dict(label="Alle Kräfte",
                      method="update",
@@ -153,7 +155,7 @@ fig.update_layout(
                      args=[{"visible": [True]*13+[False]*11+[True]*99},{"scene.annotations": force_annotations + geometry_annotations}]),
                 dict(label="q r",
                      method="update", # Dif = 13, Arrow = 11 , Vector = 1
-                     args=[{"visible": [True]*24+[False]*11+[True]*88},{"scene.annotations": force_annotations + geometry_annotations}]),
+                     args=[{"visible": [True]*24+[False]*11+[True]*88},{"scene.annotations": force_annotations[:1] + force_annotations[5:] + geometry_annotations}]),
                 dict(label="F_r + dF_r",
                      method="update", # Dif = 13, Arrow = 11 , Vector = 1
                      args=[{"visible": [True]*35+[False]*11+[True]*77},{"scene.annotations": []}]),
@@ -185,7 +187,7 @@ fig.update_layout(
             direction="down",
             pad={"r": 10, "t": 10},
             showactive=True,
-            x=0.18,
+            x=0.33,
             xanchor="left",
             y=1.08,
             yanchor="top"
@@ -227,7 +229,7 @@ fig.update_layout(
             direction="down",
             pad={"r": 10, "t": 10},
             showactive=True,
-            x=0.33,
+            x=0.18,
             xanchor="left",
             y=1.08,
             yanchor="top"
@@ -244,14 +246,21 @@ fig.update_layout(
         aspectratio=dict(x=1, y=1, z=0.8),
         ),
     # width=700,
+    annotations=[
+        dict(text="Beschriftung", x=0.58, y=1.10, showarrow=False),
+        dict(text="Kräfte", x=0.33, y=1.10, showarrow=False),
+        dict(text="Kamera", x=0.18, y=1.10, showarrow=False)
+    ]
+
 )
 
 fig.show()
 fig.write_html("./Kreisscheibe_mit_Kraftzerlegung_mit_Dropdown.html", include_plotlyjs='cdn', include_mathjax='cdn')
 
 
-# import Dropdown_menu_optionen as dmo
 
-# test_2 = [test_3 + [test[i]] for i in range(len(test)) if i not in []]
 
-# test = dmo.create_drop_menu_dicts([True,False,True,False,True,True,True,True,True,True], [1,2,3,4,5], [1,2,3,4,5])
+
+
+
+

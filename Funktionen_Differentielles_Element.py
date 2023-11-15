@@ -136,40 +136,6 @@ def create_mesh3d_for_dif_element(mesh_differential_element, scalingfactor, pos_
     mesh3d_body_lower_left = go.Scatter3d(x=body_lower_left[0, :], y=body_lower_left[1, :], z=body_lower_left[2, :],
                                 mode='lines', line=dict(color=line_color, width=plty_linewidth), visible=True, hoverinfo='none', hoverlabel=dict(font_size=font_size))
 
-    # mesh3D_body_lower_front_curve = go.Scatter3d(x=x_front_curve, y=y_front_curve, z=z_front_curve, mode='lines',
-    #                                              line=dict(color=line_color, width=plty_linewidth))
-    # mesh3D_body_lower_back_curve = go.Scatter3d(x=x_back_curve, y=y_back_curve, z=z_back_curve, mode='lines',
-    #                                             line=dict(color=line_color, width=plty_linewidth))
-    # mesh3D_body_upper_front_curve = go.Scatter3d(x=x_front_curve, y=y_front_curve, z=[(i_1 + 50) for i_1 in z_front_curve],
-    #                                              mode='lines', line=dict(color=line_color, width=plty_linewidth))
-    # mesh3D_body_upper_back_curve = go.Scatter3d(x=x_back_curve, y=y_back_curve, z=[(i_1 + 50) for i_1 in z_back_curve],
-    #                                             mode='lines', line=dict(color=line_color, width=plty_linewidth))
-    #
-    # mesh3d_body_front_left = go.Scatter3d(x=[Corners['lfl'][0], Corners['ufl'][0]], y=[Corners['lfl'][1], Corners['ufl'][1]],
-    #                                         z=[Corners['lfl'][2], Corners['ufl'][2]], mode='lines',
-    #                                         line=dict(color=line_color, width=plty_linewidth))
-    # mesh3d_body_front_right = go.Scatter3d(x=[Corners['lfr'][0], Corners['ufr'][0]], y=[Corners['lfr'][1], Corners['ufr'][1]],
-    #                                         z=[Corners['lfr'][2], Corners['ufr'][2]], mode='lines',
-    #                                         line=dict(color=line_color, width=plty_linewidth))
-    # mesh3d_body_back_left = go.Scatter3d(x=[Corners['lbl'][0], Corners['ubl'][0]], y=[Corners['lbl'][1], Corners['ubl'][1]],
-    #                                         z=[Corners['lbl'][2], Corners['ubl'][2]], mode='lines',
-    #                                         line=dict(color=line_color, width=plty_linewidth))
-    # mesh3d_body_back_right = go.Scatter3d(x=[Corners['lbr'][0], Corners['ubr'][0]], y=[Corners['lbr'][1], Corners['ubr'][1]],
-    #                                         z=[Corners['lbr'][2], Corners['ubr'][2]], mode='lines',
-    #                                         line=dict(color=line_color, width=plty_linewidth))
-    # mesh3d_body_upper_right = go.Scatter3d(x=[Corners['ufl'][0], Corners['ubl'][0]], y=[Corners['ufl'][1], Corners['ubl'][1]],
-    #                                         z=[Corners['ufl'][2], Corners['ubl'][2]], mode='lines',
-    #                                         line=dict(color=line_color, width=plty_linewidth))
-    # mesh3d_body_upper_left = go.Scatter3d(x=[Corners['ufr'][0], Corners['ubr'][0]], y=[Corners['ufr'][1], Corners['ubr'][1]],
-    #                                         z=[Corners['ufr'][2], Corners['ubr'][2]], mode='lines',
-    #                                         line=dict(color=line_color, width=plty_linewidth))
-    # mesh3d_body_lower_right = go.Scatter3d(x=[Corners['lfl'][0], Corners['lbl'][0]], y=[Corners['lfl'][1], Corners['lbl'][1]],
-    #                                         z=[Corners['lfl'][2], Corners['lbl'][2]], mode='lines',
-    #                                         line=dict(color=line_color, width=plty_linewidth))
-    # mesh3d_body_lower_left = go.Scatter3d(x=[Corners['lfr'][0], Corners['lbr'][0]], y=[Corners['lfr'][1], Corners['lbr'][1]],
-    #                                         z=[Corners['lfr'][2], Corners['lbr'][2]], mode='lines',
-    #                                         line=dict(color=line_color, width=plty_linewidth))
-
     if frame:
         mesh3D_Differential_element = [mesh3D_base_body_1,
                                        mesh3D_body_lower_front_curve,
