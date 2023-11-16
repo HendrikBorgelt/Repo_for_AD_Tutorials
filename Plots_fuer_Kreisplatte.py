@@ -125,7 +125,7 @@ fig.update_layout(
                   dict(label="Kräfte in \"Z\" Richtung", method="update", args=[{"visible": [True]*46+[False]*88}, {"scene.annotations": []}]),
                   dict(label="Momente Radial", method="update", args=[{"visible": [True] * 13 + [False] * 66 + [True] * 11 + [False] * 22 + [True] * 11 + [False] * 11}, {"scene.annotations": []}]),
                   dict(label="Momente Tangential", method="update", args=[{"visible": [True] * 13 + [False] * 33 + [True] * 22 + [False] * 22 + [True] * 11 + [False] * 22 +[True]*11}, {"scene.annotations": []}]),
-              ]), type="buttons", direction="right", showactive=False, pad={"r": 10, "t": 10}, x=0.33, xanchor="left",  y=1.145, yanchor="top"
+              ]), type="buttons", direction="right", showactive=False, pad={"r": 0, "t": 0}, x=0.0, xanchor="left",  y=1.115, yanchor="top", font=dict(size=10)
         ),
         dict( active=0,
               buttons=list([
@@ -135,13 +135,13 @@ fig.update_layout(
                       {"visible": [True] * 13 + [False] * 66 + [True] * 11 + [False] * 22 + [True] * 11 + [False] * 11}, {"scene.annotations": moments_annotations_radial}]),
                   dict(label="Momente Tangential", method="update", args=[
                       {"visible": [True] * 13 + [False] * 33 + [True] * 22 + [False] * 22 + [True] * 11 + [False] * 22 +[True]*11}, {"scene.annotations": moments_annotations_tangential}]),
-              ]), type="buttons", direction="right", showactive=False, pad={"r": 10, "t": 10}, x=0.33, xanchor="left", y=1.08, yanchor="top"
+              ]), type="buttons", direction="right", showactive=False, pad={"r": 0, "t": 0}, x=0.0, xanchor="left", y=1.02, yanchor="top", font=dict(size=10)
         ),
         dict( active=0,
               buttons=list([
                   dict(label="Ausblenden", method="relayout", args=[{"scene.annotations": []},]),
                   dict(label="Einblenden", method="relayout", args=[{"scene.annotations": geometry_annotations}])
-              ]), direction="down", showactive=False, pad={"r": 10, "t": 10}, x=0.665, xanchor="left", y=1.08, yanchor="top"
+              ]), direction="down", showactive=False, pad={"r": 0, "t": 0}, x=0.55, xanchor="left", y=1.22, yanchor="top", font=dict(size=10)
         ),
         dict(
             active=0,
@@ -172,7 +172,7 @@ fig.update_layout(
                 dict(label="Frontal erhöht", method="relayout",
                      args=[{'scene.camera': dict(eye=dict(x=0, y=-1.7, z=1.7))}]),
             ]),
-            direction="down", pad={"r": 10, "t": 10}, showactive=True, x=0.175, xanchor="left", y=1.08, yanchor="top"
+            direction="down", pad={"r": 0, "t": 0}, showactive=True, x=-0.05, xanchor="left", y=1.22, yanchor="top", font=dict(size=10)
         )
     ],
     scene=dict(
@@ -186,23 +186,31 @@ fig.update_layout(
                   "<br> "
                   "<br>Kräfte mit                                                                                                                                             "
                   "<br>Beschriftung                                                                                                                                           "
-                  "<br>", x=0.275, y=1.14, showarrow=False, borderpad=10, bordercolor='gray'),
+                  "<br>", x=-0.2, y=1.14, showarrow=False, font=dict(size=10)),
         dict(text=""
                   "<br>"
                   "<br> "
                   "<br> Kamera                         "
                   "<br> "
                   "<br> "
-                  "<br> ", x=0.17, y=1.14, showarrow=False, borderpad=10, bordercolor='gray'),
+                  "<br> ", x=-0.2, y=1.26, showarrow=False, font=dict(size=10)),
         dict(text=""
                   "<br>"
                   "<br> "
                   "<br> Geometrie                 "
                   "<br> "
                   "<br> "
-                  "<br> ", x=0.75, y=1.14, showarrow=False, borderpad=10, bordercolor='gray'),
-    ]
+                  "<br> ", x=0.52, y=1.26, showarrow=False, font=dict(size=10)),
+
+    ],
+    width=600,
+    height=600,
+    minreducedwidth=550,
+    minreducedheight=400,
+    autosize=False,
+    paper_bgcolor='lightgray',
 )
+
 
 
 fig.show()
