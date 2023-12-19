@@ -362,7 +362,7 @@ fig.update_layout(
 )
 
 # fig.show()
-fig.write_html("./Kreisscheibe_mit_Kraftzerlegung_mit_Dropdown_fuer_Smartphones.html", include_plotlyjs='cdn', include_mathjax='cdn')
+fig.write_html("./Kreisring_mit_Kraftzerlegung_mit_Dropdown_fuer_Smartphones.html", include_plotlyjs='cdn', include_mathjax='cdn')
 
 fig.update_layout(
     showlegend=False,
@@ -452,7 +452,7 @@ fig.update_layout(
 )
 
 fig.show()
-fig.write_html("./Kreisscheibe_mit_Kraftzerlegung_mit_Dropdown_fuer_FullScreen.html", include_plotlyjs='cdn', include_mathjax='cdn')
+fig.write_html("./Kreisring_mit_Kraftzerlegung_mit_Dropdown_fuer_FullScreen.html", include_plotlyjs='cdn', include_mathjax='cdn')
 
 
 
