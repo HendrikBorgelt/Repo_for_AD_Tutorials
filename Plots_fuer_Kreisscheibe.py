@@ -378,7 +378,7 @@ fig.update_layout(
                 dict(label="Kräfte in \"Y\" Richtung", method="update", args=[
                     {"visible": [True]*13+[False]*44+[True]*11+[False]*22+[True]*11+[False]*11},
                     {"scene.annotations": []}]),
-            ]), type="buttons", direction="right", showactive=False, pad={"r": 0, "t": 0}, x=0.13, xanchor="left",
+            ]), type="buttons", direction="right", showactive=False, pad={"r": 0, "t": 0}, x=0.33, xanchor="left",
             y=1.115, yanchor="top", font=dict(size=10)
         ),
         dict(active=0,
@@ -390,7 +390,7 @@ fig.update_layout(
                  dict(label="Kräfte in \"Y\" Richtung", method="update", args=[
                      {"visible": [True]*13+[False]*44+[True]*11+[False]*22+[True]*11+[False]*11},
                      {"scene.annotations": force_annotations_y}]),
-             ]), type="buttons", direction="right", showactive=False, pad={"r": 0, "t": 0}, x=0.13, xanchor="left",
+             ]), type="buttons", direction="right", showactive=False, pad={"r": 0, "t": 0}, x=0.33, xanchor="left",
              y=1.055, yanchor="top", font=dict(size=10)
              ),
         dict(
@@ -413,7 +413,7 @@ fig.update_layout(
                 dict(label="Frontal", method="relayout", args=[{'scene.camera': dict(eye=dict(x=0, y=-1.7, z=0))}]),
                 dict(label="Frontal erhöht", method="relayout", args=[{'scene.camera': dict(eye=dict(x=0, y=-1.7, z=1.7))}]),
             ]),
-             direction="down", pad={"r": 0, "t": 0}, showactive=True, x=0.13, xanchor="left", y=1.22, yanchor="top", font=dict(size=10)
+             direction="down", pad={"r": 0, "t": 0}, showactive=True, x=0.33, xanchor="left", y=1.22, yanchor="top", font=dict(size=10)
         )
     ],
     scene=dict(
@@ -427,14 +427,14 @@ fig.update_layout(
                   "<br> "
                   "<br>Kräfte mit                                                                                                                                             "
                   "<br>Beschriftung                                                                                                                                           "
-                  "<br>", x=0.08, y=1.11, showarrow=False, font=dict(size=10)),
+                  "<br>", x=0.28, y=1.11, showarrow=False, font=dict(size=10)),
         dict(text=""
                   "<br>"
                   "<br> "
                   "<br> Kamera                         "
                   "<br> "
                   "<br> "
-                  "<br> ", x=0.08, y=1.23, showarrow=False, font=dict(size=10)),
+                  "<br> ", x=0.28, y=1.23, showarrow=False, font=dict(size=10)),
         dict(text=""
                   "<br>"
                   "<br> "
