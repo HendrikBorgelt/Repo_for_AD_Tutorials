@@ -627,7 +627,9 @@ def create_mesh3d_for_torus_element(meshes, scalingfactor, pos_vec, zeta, eta, t
                             mesh3D_full_torus_right_line_inner, mesh3D_full_torus_left_line_outer,
                             mesh3D_full_torus_left_line_inner,
                             # mesh3D_torus_ring,
-                            mesh3D_tank_shell, mesh3D_half_torus]
+                            # mesh3D_tank_shell,
+                            # mesh3D_half_torus
+    ]
 
         # = [mesh3D_base_body_2, mesh3D_inner_ring_2, mesh3D_outer_ring_2, mesh3D_Tip, mesh3D_line_0,
         #            mesh3D_line_1, mesh3D_line_2,
