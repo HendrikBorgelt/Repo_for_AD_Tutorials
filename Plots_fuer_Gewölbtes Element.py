@@ -72,6 +72,32 @@ mesh3D_Differential_element_1.extend(mesh3D_Arrow_4)
 mesh3D_Differential_element_1.extend(mesh3D_Arrow_5)
 mesh3D_Differential_element_1.extend(mesh3D_Arrow_6)
 fig_2 = go.Figure(data=mesh3D_Differential_element_1)
+fig_2.update_layout(updatemenus=[dict(
+            active=0,
+            # type="buttons",
+            buttons=list([
+                dict(label="Tank", method="update", args=[
+                    {"visible": [False]*30+[True]*10+[False]*4+[True]*1+[False]*67}, {"scene.annotations": []}]),
+                dict(label="Tank mit Torus", method="update", args=[
+                    {"visible": [False]*30+[True]*16+[False]*66},{"scene.annotations": []}]),
+                dict(label="Tours", method="update", args=[
+                    {"visible": [False]*40+[True]*4+[False]*1+[True]*1+[False]*66}, {"scene.annotations": []}]),
+                dict(label="Tours mit Seg u dif Elem", method="update", args=[
+                    {"visible": [True]*30+[False]*10+[True]*4+[False]*1+[True]*1+[False]*66}, {"scene.annotations": []}]),
+                dict(label="Alle geometrischen Aspekte ohne Kräfte", method="update",
+                     args=[{"visible": [True]*46+[False]*66}, {"scene.annotations": []}, ]),
+                dict(label="Nur Dif Elem", method="update",
+                     args=[{"visible": [True]*13+[False]*99}, {"scene.annotations": []}]),
+                dict(label="Alle geometrischen Aspekte", method="update",
+                     args=[{"visible": [True] * 112}, {"scene.annotations": []}, ]),
+                # dict(label="nur Torus seg", method="update", args=[
+                #     {"visible": [False]*13+[True]*13+[False]*86},{"scene.annotations": []}]),
+                # dict(label="nur Torus seg mit dif Elem", method="update", args=[
+                #     {"visible": [True]*26+[False]*86},{"scene.annotations": []}]),
+                # dict(label="nur Torus seg mit dif Elem und Geom", method="update", args=[
+                #     {"visible": [True]*30+[False]*82},{"scene.annotations": []}]),
+            ]), type="buttons", direction="right", showactive=False, pad={"r": 0, "t": 0}, x=0.0, xanchor="left",
+            y=1.115, yanchor="top", font=dict(size=10))])
 fig_2.show()
 # mesh_curved_arrow_1 = mesh.Mesh.from_file('./meshes/Hohl_Torus.stl')
 # mesh3D_Arrow_1 = fp.create_mesh3d_for_arrow(mesh_straight_arrow_1, 0.5, [0, -25, 0], -np.pi/2, 0, 0, '<i>F<sub>rz </sub> r d&#966; </i>')
