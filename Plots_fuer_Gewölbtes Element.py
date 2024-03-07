@@ -90,6 +90,8 @@ fig_2.update_layout(updatemenus=[dict(
                      args=[{"visible": [True]*13+[False]*99}, {"scene.annotations": []}]),
                 dict(label="Alle geometrischen Aspekte", method="update",
                      args=[{"visible": [True] * 112}, {"scene.annotations": []}, ]),
+                dict(label="Nur Dif Elem", method="update",
+                     args=[{"visible": [True]*13+[False]*33+[True]*66}, {"scene.annotations": []}]),
                 # dict(label="nur Torus seg", method="update", args=[
                 #     {"visible": [False]*13+[True]*13+[False]*86},{"scene.annotations": []}]),
                 # dict(label="nur Torus seg mit dif Elem", method="update", args=[
