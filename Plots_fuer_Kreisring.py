@@ -444,7 +444,7 @@ fig.update_layout(
                   "<br> ", x=0.53, y=1.23, showarrow=False, font=dict(size=10)),
 
     ],
-    width=1800,
+    width=1600,
     height=900,
     minreducedwidth=550,
     minreducedheight=600,

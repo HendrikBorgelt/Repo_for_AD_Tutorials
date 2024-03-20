@@ -276,7 +276,7 @@ fig.update_layout(
                   "<br> ", x=0.53, y=1.23, showarrow=False, font=dict(size=10)),
 
     ],
-    width=1800,
+    width=1400,
     height=900,
     minreducedwidth=550,
     minreducedheight=600,
@@ -288,3 +288,90 @@ fig.update_layout(
 
 fig.show()
 fig.write_html("./Kreisplatte_mit_Kraftzerlegung_und_Dropdown_fuer_FullScreen.html", include_plotlyjs='cdn', include_mathjax='cdn')
+
+fig.update_layout(
+    showlegend=False,
+    updatemenus=[
+        dict(
+            active=0,
+            # type="buttons",
+            buttons=list([
+                  dict(label="Alle Kräfte", method="update", args=[{"visible": [True]*134}, {"scene.annotations": []},]),
+                  dict(label="Kräfte in \"Z\" Richtung", method="update", args=[{"visible": [True]*46+[False]*88}, {"scene.annotations": []}]),
+                  dict(label="Momente Radial", method="update", args=[{"visible": [True] * 13 + [False] * 66 + [True] * 11 + [False] * 22 + [True] * 11 + [False] * 11}, {"scene.annotations": []}]),
+                  dict(label="Momente Tangential", method="update", args=[{"visible": [True] * 13 + [False] * 33 + [True] * 22 + [False] * 22 + [True] * 11 + [False] * 22 +[True]*11}, {"scene.annotations": []}]),
+              ]), type="buttons", direction="right", showactive=False, pad={"r": 0, "t": 0}, x=0.33, xanchor="left",  y=1.115, yanchor="top", font=dict(size=10)
+        ),
+        dict( active=0,
+              buttons=list([
+                  dict(label="Alle Kräfte", method="update", args=[{"visible": [True]*134}, {"scene.annotations": force_annotations_all},]),
+                  dict(label="Kräfte in \"Z\" Richtung", method="update", args=[{"visible": [True]*46+[False]*88}, {"scene.annotations": force_annotations_z}]),
+                  dict(label="Momente Radial", method="update", args=[
+                      {"visible": [True] * 13 + [False] * 66 + [True] * 11 + [False] * 22 + [True] * 11 + [False] * 11}, {"scene.annotations": moments_annotations_radial}]),
+                  dict(label="Momente Tangential", method="update", args=[
+                      {"visible": [True] * 13 + [False] * 33 + [True] * 22 + [False] * 22 + [True] * 11 + [False] * 22 +[True]*11}, {"scene.annotations": moments_annotations_tangential}]),
+              ]), type="buttons", direction="right", showactive=False, pad={"r": 0, "t": 0}, x=0.33, xanchor="left", y=1.055, yanchor="top", font=dict(size=10)
+        ),
+        dict( active=0,
+              buttons=list([
+                  dict(label="Ausblenden", method="relayout", args=[{"scene.annotations": []},]),
+                  dict(label="Einblenden", method="relayout", args=[{"scene.annotations": geometry_annotations}])
+              ]), direction="down", showactive=False, pad={"r": 0, "t": 0}, x=0.54, xanchor="left", y=1.22, yanchor="top", font=dict(size=10)
+        ),
+        dict(
+            active=0,
+            buttons=list([
+                dict(label="Reset", method="relayout", args=[{'scene.camera': dict(eye=dict(x=-1.25, y=-1.25, z=1.25))}]),
+                dict(label="links", method="relayout", args=[{'scene.camera': dict(eye=dict(x=1.7, y=0, z=0))}]),
+                dict(label="links erhöht", method="relayout", args=[{'scene.camera': dict(eye=dict(x=1.7, y=0, z=1.7))}]),
+                dict(label="rechts", method="relayout", args=[{'scene.camera': dict(eye=dict(x=-1.7, y=0, z=0))}]),
+                dict(label="rechts erhöht", method="relayout", args=[{'scene.camera': dict(eye=dict(x=-1.7, y=0, z=1.5))}]),
+                dict(label="Vogelperspektive", method="relayout", args=[{'scene.camera': dict(eye=dict(x=0, y=0, z=2.2), up=dict(x=0, y=-1, z=0),)}]),
+                dict(label="Rückseitig", method="relayout",  args=[{'scene.camera': dict(eye=dict(x=0, y=1.7, z=0))}]),
+                dict(label="Rückseitig erhöht", method="relayout", args=[{'scene.camera': dict(eye=dict(x=0, y=1.7, z=1.7))}]),
+                dict(label="Frontal", method="relayout", args=[{'scene.camera': dict(eye=dict(x=0, y=-1.7, z=0))}]),
+                dict(label="Frontal erhöht", method="relayout", args=[{'scene.camera': dict(eye=dict(x=0, y=-1.7, z=1.7))}]),
+            ]),
+            direction="down", pad={"r": 0, "t": 0}, showactive=True, x=0.33, xanchor="left", y=1.22, yanchor="top", font=dict(size=10)
+        )
+    ],
+    scene=dict(
+        xaxis=dict(nticks=20, range=[-75, 75], autorange=False), yaxis=dict(nticks=20, range=[-75, 75], autorange=False), zaxis=dict(nticks=15, range=[-50, 50], autorange=False),
+        aspectmode='manual', xaxis_title='Y Achse', yaxis_title='X Achse', zaxis_title='Z Achse', aspectratio=dict(x=1, y=1, z=0.8),
+        ),
+    scene_camera=dict(eye=dict(x=-1.25, y=-1.25, z=1.25)),
+    annotations=[
+        dict(text="Kräfte ohne                                                                                                                                            "
+                  "<br>Beschriftung                                                                                                                                           "
+                  "<br> "
+                  "<br>Kräfte mit                                                                                                                                             "
+                  "<br>Beschriftung                                                                                                                                           "
+                  "<br>", x=0.28, y=1.11, showarrow=False, font=dict(size=10)),
+        dict(text=""
+                  "<br>"
+                  "<br> "
+                  "<br> Kamera                         "
+                  "<br> "
+                  "<br> "
+                  "<br> ", x=0.28, y=1.23, showarrow=False, font=dict(size=10)),
+        dict(text=""
+                  "<br>"
+                  "<br> "
+                  "<br> Geometrie                 "
+                  "<br> "
+                  "<br> "
+                  "<br> ", x=0.53, y=1.23, showarrow=False, font=dict(size=10)),
+
+    ],
+    width=1800,
+    height=900,
+    minreducedwidth=550,
+    minreducedheight=600,
+    autosize=False,
+    # paper_bgcolor='white',
+)
+
+
+
+fig.show()
+fig.write_html("./Kreisplatte_mit_Kraftzerlegung_und_Dropdown_fuer_PopUp.html", include_plotlyjs='cdn', include_mathjax='cdn')
