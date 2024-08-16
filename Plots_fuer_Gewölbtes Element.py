@@ -81,9 +81,9 @@ fig.update_layout(updatemenus=[
                     {"visible": [False]*30+[True]*10+[False]*4+[True]*1+[False]*67}, {"scene.annotations": []}]),
                 dict(label="Tank mit Torus", method="update", args=[
                     {"visible": [False]*30+[True]*16+[False]*66},{"scene.annotations": []}]),
-                dict(label="Tours", method="update", args=[
+                dict(label="Torurs", method="update", args=[
                     {"visible": [False]*40+[True]*4+[False]*1+[True]*1+[False]*66}, {"scene.annotations": []}]),
-                dict(label="Tours mit Seg u dif Elem", method="update", args=[
+                dict(label="Torus mit Seg u dif Elem", method="update", args=[
                     {"visible": [True]*30+[False]*10+[True]*4+[False]*1+[True]*1+[False]*66}, {"scene.annotations": []}]),
                 dict(label="Alle geometrischen Aspekte ohne Kräfte", method="update",
                      args=[{"visible": [True]*46+[False]*66}, {"scene.annotations": []}, ]),
@@ -150,9 +150,9 @@ fig.update_layout(updatemenus=[
                     {"visible": [False]*30+[True]*10+[False]*4+[True]*1+[False]*67}, {"scene.annotations": []}]),
                 dict(label="Tank mit Torus", method="update", args=[
                     {"visible": [False]*30+[True]*16+[False]*66},{"scene.annotations": []}]),
-                dict(label="Tours", method="update", args=[
+                dict(label="Torus", method="update", args=[
                     {"visible": [False]*40+[True]*4+[False]*1+[True]*1+[False]*66}, {"scene.annotations": []}]),
-                dict(label="Tours mit Seg u dif Elem", method="update", args=[
+                dict(label="Torus mit Seg u dif Elem", method="update", args=[
                     {"visible": [True]*30+[False]*10+[True]*4+[False]*1+[True]*1+[False]*66}, {"scene.annotations": []}]),
                 dict(label="Alle geometrischen Aspekte ohne Kräfte", method="update",
                      args=[{"visible": [True]*46+[False]*66}, {"scene.annotations": []}, ]),
